@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-//import {getPosts} from './service'
+import { useMoralis } from 'react-moralis'
 import { getAll, paginate } from './data';
 
 export const ProductContext = React.createContext();
 
 
 export default function ProductProvider({ children }) {
+  const { authenticate, isAuthenticated, user, account, chainId, Moralis } = useMoralis();
+  const [currentAccount, setCurrentAccount] = React.useState();
+  const [currentUser, setCurrentUser] = React.useState();
 
    const [loading, setLoading] = React.useState(false);   
    const [products, setProducts] = React.useState([]);
@@ -30,6 +33,67 @@ export default function ProductProvider({ children }) {
  //   const initialUrlDos = `https://stelenapp.herokuapp.com`;
 
    const initialUrlDos = `http://localhost:4000`;
+   const requestCurrentUserData = async walletAddress => {
+    try {
+      const response = await fetch(
+        `/api/fetchCurrentUserData?activeAccount=${walletAddress}`,
+      )
+      const data = await response.json()
+
+      setCurrentUser(data.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const requestUsersData = async activeAccount => {
+    try {
+      const response = await fetch(
+        `/api/fetchUsers?activeAccount=${activeAccount}`,
+      )
+      const data = await response.json()
+
+     } catch (error) {
+      console.error(error)
+    }
+  }
+
+   React.useEffect(() => {
+    checkWalletConnection()
+
+    if (isAuthenticated) {
+      requestUsersData(user.get('ethAddress'))
+      requestCurrentUserData(user.get('ethAddress'))
+    }
+  }, [isAuthenticated])
+
+  const checkWalletConnection = async () => {
+    if (isAuthenticated) {
+      const address = user.get('ethAddress')
+      setCurrentAccount(address)
+    //  requestToCreateUserProfile(address, faker.name.findName())
+    } else {
+      setCurrentAccount('')
+    }
+  }
+
+  const connectWallet = async () => {
+    if (!isAuthenticated) {
+      try {
+        await authenticate({
+          signingMessage: 'Log in using Moralis',
+        })
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  }
+
+  const disconnectWallet = async () => {
+    await Moralis.User.logOut()
+    setCurrentAccount('')
+  }
+
 
 
    React.useEffect(() => {
@@ -175,6 +239,11 @@ export default function ProductProvider({ children }) {
     return (
       <ProductContext.Provider
       value={{
+        connectWallet,
+        disconnectWallet,
+        currentAccount,
+        currentUser,
+
         products,
         featured,
         loading,

@@ -1,8 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+
 import Nav from "./components/Nav";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
+
 import ProductFeatured from "./components/Products/ProductFeatured";
 import About from "./components/Products/About";
 import ProductDetails from "./components/Products/ProductDetails";
@@ -19,6 +22,8 @@ import Cart from "./components/Products/Cart";
 
 function App() {
   return (
+        <div class="site-wrap">
+
   <Router>
 
   <Nav />
@@ -55,9 +60,11 @@ function App() {
 <Cart />
 </Route>
 
+ <Footer/>
+ 
 </Router>
 
-
+</div>
 
   );
 }
