@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import CartLink from "./Cart/CartLink";
-import { ConnectButton, Icon, Select, DatePicker } from "web3uikit";
-import { useContext } from 'react'
+ import { useContext } from 'react'
 import { ProductContext } from "../context/products";
 
 export default function Nav() {
-      const { connectWallet, currentAccount, disconnectWallet } = useContext(ProductContext);
-
+ 
         return (
             <>
        <div class="site-navbar bg-white py-2">
@@ -54,32 +52,15 @@ export default function Nav() {
                   <li><a href="#">Catalogue</a></li>
                   <li><a href="#">New Arrivals</a></li>
                   <li>
-                  {currentAccount ? (
-                    <>
-                       <span >
-                           {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
-                       </span>
-                    <button
-                    
-                      onClick={() => disconnectWallet()}
-                   >
-                     Logout
-                   </button>
-                   </>
-                    ) : (
-                      <ConnectButton 
-                         onClick={() => connectWallet()}
-                      />
-                    )}
+        
 
                   </li>
                 </ul>
               </nav>
             </div>
             <div class="icons">
-               <a href="cart.html" class="icons-btn d-inline-block bag">
-               <span class="number">     </span>
-               <span class="icon-shopping-bag"></span>
+               <a class="icons-btn d-inline-block bag">
+               
 
                 <CartLink />
 

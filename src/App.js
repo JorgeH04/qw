@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 
+
 import ProductFeatured from "./components/Products/ProductFeatured";
 import About from "./components/Products/About";
 import ProductDetails from "./components/Products/ProductDetails";

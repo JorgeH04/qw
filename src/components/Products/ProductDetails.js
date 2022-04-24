@@ -8,132 +8,86 @@ export default function ProductDetails() {
   const { _id } = useParams();
   const history = useHistory();
 
-  const { products } = React.useContext(ProductContext);
+  const { products, handleCheck, changePrice } = React.useContext(ProductContext);
   const { addToCart } = React.useContext(CartContext);
   const product = products.find(item => item._id === _id);
-
-  const [details, setDetails] = React.useState([{title: "", price: "", amount: ""}]);
-  const [price, setPrice] = React.useState();
-  const [title, setTitle] = React.useState();
-  const [amount, setAmount] = React.useState();
-
-// accounts.map(({friends}) => friends)
-
-
- 
-
-
-  React.useEffect(() => {
-    let prod = products.find(item => item._id === _id);
-    setDetails(prod) 
-  }, []);
- 
-
-  React.useEffect(() => {
-    let vim = products.find(item => item._id === _id);
-    let bb = vim.price
-    setPrice(bb) 
-  }, []);
-
-
-
-  const handleCheckdos = (e) => {
-
-    const checked = e.target.checked;
-
-    if (checked) {
-      let vv = products.find(item => item._id === _id);
-      let ca = vv.price
-      let car = vv.amountdos
-      let val = ca + car
-      console.log( ca + car)
-      setPrice(ca + car)
-    } else {
-      let vc = products.find(item => item._id === _id);
-      let cac = vc.price
-       setPrice(cac)
-    }
-  };
-
-
-  const handleCheck = (e) => {
-
-    const checked = e.target.checked;
-
-    if (checked) {
-      let vv = products.find(item => item._id === _id);
-      let ca = vv.price
-      let car = vv.amount
-      let val = ca + car
-      console.log( ca + car)
-      setPrice(ca + car)
-      // setDetails({
-      //   ...details,
-      //   [e.target.name]: e.target.value
-      // })   
-    } else {
-      let vc = products.find(item => item._id === _id);
-      let cac = vc.price
-       setPrice(cac)
-    }
-  };
-
-
   if (products.length === 0) {
     return <Loading />;
   } else {
-    //const { image, title, price, description, amount } = product;
-
+    const { image, title, price, description, amount } = product;
 
  
 
 
     
     return (
-      <section className="single-product">
-        <img     className="single-product-image" />
-        <article>
-          <h1>{title} </h1>
-          <h2>${price}</h2>
-          <p> </p>
 
-          <div>
-            <div>
-              <input
-                type="checkbox"
-                name={details.price}
-                value={details.val}
-                onChange={(e) => handleCheck(e)}
-              />
-              <label htmlFor="double"></label>
-            </div>
+
+      <>
+
+
+      
+
+<div class="bg-light py-3">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="shop.html">Shop</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Gray Shoe</strong></div>
+  </div>
+</div>
+</div>  
+
+<div class="site-section">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="item-entry">
+        <a href="#" class="product-item md-height bg-gray d-block">
+          <img src={image} alt="Image" class="img-fluid"/>
+        </a>
+        
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <h2 class="text-black">{title}</h2>
+      <p>hgghhg.</p>
+      <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
+      <p><strong class="text-primary h4">${price}</strong></p>
+      <div class="mb-1 d-flex">
+      
+      </div>
+      <div class="mb-5">
+        <div class="input-group mb-3"  >
+        <div class="input-group-prepend">
+         </div>
+        <div class="input-group-append">
+           
         </div>
+      </div>
 
-
-          <div>
-            <div>
-              <input
-                type="checkbox"
-                name={details.price}
-                value={details.val}
-                onChange={(e) => handleCheckdos(e)}
-              />
-              <label htmlFor="double"></label>
-            </div>
-        </div>
-
-
-          <button
-            className="btn btn-primary btn-block"
-            onClick={() => {
-              addToCart( {...details, price, });
-              history.push("/cart");
-            }}
-          >
-            Agregar al carro
+      </div>
+      <p><button 
+          onClick={() => {
+            addToCart(product);
+            history.push("/cart");
+          }}
+          class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart
           </button>
-        </article>
-      </section>
+      </p>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+      </>
+
+
+
     );
   }
 }
+
+
+ 

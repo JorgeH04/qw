@@ -7,8 +7,11 @@ export default function CartLink() {
 
   return (
     <div className="cart-link-container">
-      <Link to="/cart">Carro</Link>
-      <span className="cart-link-total">{cartItems}</span>
+      <Link to="/cart"><span class="icon-shopping-bag"></span>   <span class="number">  {cartItems}   </span></Link>
     </div>
   );
 }
+
+
+
+

@@ -12,8 +12,11 @@ export default function Products() {
   }
   return (
     <>
-      <Filters />
+        <div class="site-section">
+      <div class="container">
       <PageProducts></PageProducts>
+      </div>
+    </div>
     </>
   );
 }

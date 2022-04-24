@@ -22,8 +22,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "5.0.1",
     "string-to-color": "^2.2.2",
-    "web-vitals": "^2.1.4",
-    "web3uikit": "^0.1.129"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -157,6 +157,78 @@ setPosts(postdata);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<article className="cart-item" key={_id}>
+<img src={image} alt={title} />
+<div>
+  <h4>{title}</h4>
+  <h5>${price}</h5>
+  <button
+    type="button"
+    className="cart-btn remove-btn"
+    onClick={() => {
+      removeItem(_id);
+    }}
+  >
+    eliminar
+  </button>
+</div>
+<div>
+  <button
+    type="button"
+    className="cart-btn amount-btn"
+    onClick={() => {
+      increaseAmount(_id);
+    }}
+  >
+    <FaAngleUp />
+  </button>
+  <p className="item-amount">{amount}</p>
+  <button
+    type="button"
+    className="cart-btn amount-btn"
+    onClick={() => {
+      decreaseAmount(_id, amount);
+    }}
+  >
+    <FaAngleDown />
+  </button>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
