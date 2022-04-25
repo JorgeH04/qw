@@ -48,9 +48,10 @@ export default class Update extends Component {
     this.fetchPosts();
 
   }
-
+  
    fetchPosts() {
-    fetch('http://localhost:4000')
+     fetch('https://backmatic.herokuapp.com')
+    //fetch('http://localhost:4000')
       .then(res => res.json())
       .then(data => {
         console.log(data);
