@@ -90,7 +90,7 @@ export default class Update extends Component {
             <div >
                 <div className="col-md-6 offset-md-3">
                    <div className="card card-body">
-                     <h4>Actualizar sus productoss</h4>
+                     <h4>Actualizar destacados</h4>
                        <form onSubmit={this.addPost}>
                     
                     {/* Name */}

@@ -144,7 +144,7 @@ export default class Destacados extends Component {
             <div >
                 <div className="col-md-6 offset-md-3">
                    <div className="card card-body">
-                     <h4>Actualizar sus productosc</h4>
+                     <h4>Actualizar sus productos</h4>
                        <form onSubmit={this.addPost}>
                     
    {/* Name */}
