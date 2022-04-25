@@ -56,7 +56,7 @@ export default function Nav() {
                       <button
                          onClick={() => connectWallet()}
                        >
-                       Conectar Wallet
+                       Connect Wallet
                        </button>
                     )}
 

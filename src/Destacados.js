@@ -22,7 +22,8 @@ export default class Update extends Component {
 
 
    addPost(e){
-       fetch('http://localhost:4000/adddos',{
+        fetch('https://backmatic.herokuapp.com/adddos',{
+     //  fetch('http://localhost:4000/adddos',{https://backmatic.herokuapp.com
          method: 'POST',
          body: JSON.stringify(this.state),
          headers: {
@@ -61,7 +62,8 @@ export default class Update extends Component {
   }
 
   deletePost(_id){ 
-        fetch(`http://localhost:4000/delete/${_id}`, {
+       fetch(`https://backmatic.herokuapp.com/delete/${_id}`, {
+      //  fetch(`http://localhost:4000/delete/${_id}`, {
           method: 'DELETE',
           headers: {
             'Accept': 'application/json',
