@@ -26,13 +26,15 @@ export default function ProductProvider({ children }) {
 
  
 
-  //  const initialUrl = `https://stelenapp.herokuapp.com/api/post`;
+    const initialUrl = `https://backmatic.herokuapp.com/api/post`;
 
-   const initialUrl = `http://localhost:4000/api/post`;
+ //  const initialUrl = `http://localhost:4000/api/post`;
 
- //   const initialUrlDos = `https://stelenapp.herokuapp.com`;
+    const initialUrlDos = `https://backmatic.herokuapp.com`;
 
-   const initialUrlDos = `http://localhost:4000`;
+ //  const initialUrlDos = `http://localhost:4000`;
+
+
    const requestCurrentUserData = async walletAddress => {
     try {
       const response = await fetch(

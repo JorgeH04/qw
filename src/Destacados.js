@@ -20,8 +20,9 @@ export default class Update extends Component {
 
     }
 
+
    addPost(e){
-       fetch('https://stelenapp.herokuapp.com/adddos',{
+       fetch('http://localhost:4000/adddos',{
          method: 'POST',
          body: JSON.stringify(this.state),
          headers: {
@@ -48,7 +49,7 @@ export default class Update extends Component {
   }
 
    fetchPosts() {
-    fetch('https://stelenapp.herokuapp.com')
+    fetch('http://localhost:4000')
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -60,7 +61,7 @@ export default class Update extends Component {
   }
 
   deletePost(_id){ 
-        fetch(`https://stelenapp.herokuapp.com/delete/${_id}`, {
+        fetch(`http://localhost:4000/delete/${_id}`, {
           method: 'DELETE',
           headers: {
             'Accept': 'application/json',
@@ -89,7 +90,7 @@ export default class Update extends Component {
             <div >
                 <div className="col-md-6 offset-md-3">
                    <div className="card card-body">
-                     <h4>Actualizar sus productos</h4>
+                     <h4>Actualizar sus productoss</h4>
                        <form onSubmit={this.addPost}>
                     
                     {/* Name */}

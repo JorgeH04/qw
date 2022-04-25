@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import CartLink from "./Cart/CartLink";
- import { useContext } from 'react'
+import { useContext } from 'react'
 import { ProductContext } from "../context/products";
 
 export default function Nav() {
- 
+  const { connectWallet, currentAccount, disconnectWallet } = useContext(ProductContext)
+
         return (
             <>
        <div class="site-navbar bg-white py-2">
@@ -29,28 +30,37 @@ export default function Nav() {
             <div class="main-nav d-none d-lg-block">
               <nav class="site-navigation text-right text-md-center" role="navigation">
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li class="has-children ">
+                  <li>
                         <Link to="/">Home</Link>
-                    <ul class="dropdown">
-                      <li><a href="#">Menu One</a></li>
-                      <li><a href="#">Menu Two</a></li>
-                      <li><a href="#">Menu Three</a></li>
-                      <li class="has-children">
-                        <a href="#">Sub Menu</a>
-                        <ul class="dropdown">
-                          <li><a href="#">Menu One</a></li>
-                          <li><a href="#">Menu Two</a></li>
-                          <li><a href="#">Menu Three</a></li>
-                        </ul>
-                      </li>
-                    </ul>
                   </li>
                   
                   <li class="active">
-                      <Link to="/products">Productos</Link>
+                      <Link to="/products">Products</Link>
                   </li>
-                  <li><a href="#">Catalogue</a></li>
-                  <li><a href="#">New Arrivals</a></li>
+                
+                  <li>
+
+                    {currentAccount ? (
+                    <>
+                       <span >
+                           {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
+                       </span>
+                    <button
+                    
+                      onClick={() => disconnectWallet()}
+                   >
+                     Logout
+                   </button>
+                   </>
+                    ) : (
+                      <button
+                         onClick={() => connectWallet()}
+                       >
+                       Conectar Wallet
+                       </button>
+                    )}
+
+                  </li>
                   <li>
         
 

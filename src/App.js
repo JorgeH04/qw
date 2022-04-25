@@ -43,10 +43,10 @@ function App() {
   ></Route>
 
 
-<Route path="/destacados" component={Destacados}  />
+   <Route path="/destacados" component={Destacados}  />
 
 
-<Route path="/update" component={Update}  />
+  <Route path="/update" component={Update}  />
 
 
   <Route path="/about" component={About} />
@@ -57,9 +57,9 @@ function App() {
   ></Route>
 
 
-<Route path="/cart">
-<Cart />
-</Route>
+   <Route path="/cart">
+   <Cart />
+ </Route>
 
  <Footer/>
  

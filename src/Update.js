@@ -5,15 +5,12 @@ export default class Destacados extends Component {
     constructor() {
     super();
     this.state = {
-          name: '',
-          title: '',
-          image: '',
-          description: '',
-          price: '',
-          amount: '',
-          amountdos: '',
-          amounttres: '',
-          _id: '',
+      name: '',
+      title: '',
+      image: '',
+      description: '',
+      price: '',
+      amount: '',
           posts: []
         
        
@@ -47,13 +44,13 @@ export default class Destacados extends Component {
       })
         .then(res => res.json())
         .then(data => {
-          this.setState({name: '', title: '', image: '', description: '', price: '', amount: '', amountdos: '', amounttres: '',_id: '' });
+          this.setState({name: '', title: '', image: '', description: '', price: '', amount: ''});
           this.fetchPosts();
         });
 
     }else{
-           // fetch('https://stelenapp.herokuapp.com/api/post/add',{       
-            fetch('http://localhost:4000/api/post/add',{
+            fetch('https://backmatic.herokuapp.com/api/post/add',{       
+           // fetch('http://localhost:4000/api/post/add',{
               method: 'POST',
               body: JSON.stringify(this.state),
           
@@ -96,8 +93,8 @@ export default class Destacados extends Component {
   }
 
   deletePost(_id){ 
-       // fetch(`https://stelenapp.herokuapp.com/api/post/delete/${_id}`, {
-          fetch(`http://localhost:4000/api/post/delete/${_id}`, {
+        fetch(`https://backmatic.herokuapp.com/api/post/delete/${_id}`, {
+       //   fetch(`http://localhost:4000/api/post/delete/${_id}`, {
           method: 'DELETE',
           headers: {
             'Accept': 'application/json',
@@ -147,11 +144,11 @@ export default class Destacados extends Component {
             <div >
                 <div className="col-md-6 offset-md-3">
                    <div className="card card-body">
-                     <h4>Actualizar sus productos</h4>
+                     <h4>Actualizar sus productosc</h4>
                        <form onSubmit={this.addPost}>
                     
-                    {/* Name */}
-                    <div className="form-group">
+   {/* Name */}
+   <div className="form-group">
                         <input
                             type="text"
                             className="form-control"
@@ -221,30 +218,6 @@ export default class Destacados extends Component {
                             value={this.state.amount}
                             required />
                     </div>
-
-
-                        <div className="form-group">
-                         <input
-                            type="text"
-                            className="form-control"
-                            placeholder="amountdos"
-                            name="amountdos"
-                            onChange={this.handleChange} 
-                            value={this.state.amountdos}
-                            required />
-                    </div>
-
-                <div className="form-group">
-                         <input
-                            type="text"
-                            className="form-control"
-                            placeholder="amounttres"
-                            name="amounttres"
-                            onChange={this.handleChange} 
-                            value={this.state.amounttres}
-                            required />
-                    </div>
-
 
                     
                   
