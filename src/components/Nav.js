@@ -30,41 +30,40 @@ export default function Nav() {
             <div class="main-nav d-none d-lg-block">
               <nav class="site-navigation text-right text-md-center" role="navigation">
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li>
+                    <li>
                         <Link to="/">Home</Link>
-                  </li>
+                    </li>
                   
-                  <li class="active">
-                      <Link to="/products">Products</Link>
-                  </li>
-                
-                  <li>
-
+                    <li class="active">
+                       <Link to="/products">Products</Link>
+                    </li>
+                    <li class="active">
+                     </li>
+                   
                     {currentAccount ? (
                     <>
-                       <span >
-                           {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
-                       </span>
-                    <button
-                    
-                      onClick={() => disconnectWallet()}
-                   >
-                     Logout
-                   </button>
+                       <li class="active">
+                            {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
+                      </li>
+
+                       <li class="active">
+                           <button class="btn btn-sm btn-primary" 
+                              onClick={() => disconnectWallet()} >
+                                 Logout
+                           </button>
+                       </li>
                    </>
                     ) : (
-                      <button
-                         onClick={() => connectWallet()}
-                       >
-                       Connect Wallet
-                       </button>
+                      <li class="active">
+                         <button  class="btn btn-sm btn-primary" 
+                           onClick={() => connectWallet()}>
+                              Connect Wallet
+                         </button>
+                       </li>
                     )}
 
-                  </li>
-                  <li>
-        
-
-                  </li>
+                 
+ 
                 </ul>
               </nav>
             </div>
