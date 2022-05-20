@@ -18,23 +18,71 @@ export default function ProductDetails() {
 
     
     return (
-      <section className="single-product">
-        <img src={image} alt={title} className="single-product-image" />
-        <article>
-          <h1>{title}</h1>
-          <h2>${price}</h2>
-          <p>{description}</p>
-          <button
-            className="btn btn-primary btn-block"
-            onClick={() => {
-              addToCart(productF);
-              history.push("/cart");
-            }}
-          >
-            Agregar al carro
-          </button>
-        </article>
-      </section>
+
+
+      <>
+
+
+      
+
+      <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="shop.html">Shop</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Gray Shoe</strong></div>
+        </div>
+      </div>
+      </div>  
+      
+      <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="item-entry">
+              <a href="#" class="product-item md-height bg-gray d-block">
+                <img src={image} alt="Image" class="img-fluid"/>
+              </a>
+              
+            </div>
+      
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-black">{title}</h2>
+            <p>hgghhg.</p>
+            <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
+            <p><strong class="text-primary h4">${price}</strong></p>
+            <div class="mb-1 d-flex">
+            
+            </div>
+            <div class="mb-5">
+              <div class="input-group mb-3"  >
+              <div class="input-group-prepend">
+               </div>
+              <div class="input-group-append">
+                 
+              </div>
+            </div>
+      
+            </div>
+            <p><button 
+                onClick={() => {
+                  addToCart(productF);
+                  history.push("/cart");
+                }}
+                class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart
+                </button>
+            </p>
+      
+          </div>
+        </div>
+      </div>
+      </div>
+      
+      
+            </>
+
+
+
+
     );
   }
 }
