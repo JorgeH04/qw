@@ -27,7 +27,7 @@ export default function Cart() {
     const options1 = {
       type: "native", 
       amount: Moralis.Units.ETH(priceMatic), 
-      receiver: "0x565B5d612323c42F335a75FA0f3576fbb54aE890"
+      receiver: "0x5cFab76E36927e25898aA552fbBcF73bfabcd319"
     }
     let result = await Moralis.transfer(options1)
     //Save Transaction Details to DB
@@ -64,14 +64,14 @@ export default function Cart() {
             </tr>
           </thead>
 
-      {cart.map(item => {
-        return <CartItem key={item._id} {...item} />;
-      })}
+        {cart.map(item => {
+             return <CartItem key={item._id} {...item} />;
+         })}
  
  
-</table>
-</div>
-</form>
+       </table>
+     </div>
+   </form>
 </div>
 
 <div class="row">
