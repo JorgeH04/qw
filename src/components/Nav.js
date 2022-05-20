@@ -30,15 +30,15 @@ export default function Nav() {
             <div class="main-nav d-none d-lg-block">
               <nav class="site-navigation text-right text-md-center" role="navigation">
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                    <li>
+                    <li class="active">
                         <Link to="/">Home</Link>
                     </li>
                   
-                    <li class="active">
+                    <li>
                        <Link to="/products">Products</Link>
                     </li>
-                    <li class="active">
-                     </li>
+            
+            
                    
                     {currentAccount ? (
                     <>
