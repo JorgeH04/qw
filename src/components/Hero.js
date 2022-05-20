@@ -9,7 +9,7 @@ export default function Hero({ children }) {
       <div class="row">
         <div class="col-md-6 ml-auto order-md-2 align-self-start">
           <div class="site-block-cover-content">
-          <h2 class="sub-title">#New Summer Collection 2019</h2>
+          <h2 class="sub-title">Jorge Hess 1#portfolio</h2>
           <h1>Arrivals Sales</h1>
           <p><a href="#" class="btn btn-black rounded-0">Shop Now</a></p>
           </div>
